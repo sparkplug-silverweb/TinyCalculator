@@ -7,6 +7,7 @@
     </h:head>
     <h:body>
         <h1>TinyCalculator</h1>
+        <h:message for="result"/>
         <h:form>
             <div>
                 <h:outputLabel value="Param1: " />
@@ -21,10 +22,18 @@
                 <h:commandButton value="Subtract" action="#{tinyCalculator.subtract()}" />
                 <h:commandButton value="Multiply" action="#{tinyCalculator.multiply()}" />
                 <h:commandButton value="Divide" action="#{tinyCalculator.divide()}" />
+                <h:commandButton value="Print component tree" action="#{tinyCalculator.printTree()}" />
             </div>
             <div>
                 <h:outputLabel value="Result: " />
                 <h:outputText value="#{tinyCalculator.result}" />
+                <br/> #{tinyCalculator.result = 10}
+                <br/> #{tinyCalculator.result = tinyCalculator.result + 10}   
+                <br/> #{tinyCalculator.result} 
+                <br/> #{tinyCalculator.result = 10} 
+                <br/> #{tinyCalculator.result += 10} 
+                <h:outputText id="result" value="#{tinyCalculator.result}" />
+   
             </div>
         </h:form>
     </h:body>

@@ -10,6 +10,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIViewRoot;
+import javax.faces.context.FacesContext;
 //import javax.enterprise.context.SessionScoped;
 
 /**
@@ -83,6 +86,30 @@ public class TinyCalculator
     public String divide(){
         _result = _param1 / _param2;
         return "";
-    }    
+    }
+    
+    public String printTree() {
+        UIViewRoot root = FacesContext.getCurrentInstance().getViewRoot();
+        printTree(root,0);
+        return "";
+    }
+    
+    private void printTree(UIComponent element, int level){
+        logElement(level,element);
+        for(UIComponent child: element.getChildren()){
+            printTree(child, level + 1);
+        }
+    }
+    
+    
+    private void logElement(int level, UIComponent element){
+        String out ="";
+        for(int i=0; i <level; i++){
+            out +="----";
+        }
+        out+= element.getClass().getSimpleName() + " - " + element.getFamily() + " - " + element.getRendererType();
+        LOGGER .log(Level.INFO, out);
+        
+    }
     
 }
