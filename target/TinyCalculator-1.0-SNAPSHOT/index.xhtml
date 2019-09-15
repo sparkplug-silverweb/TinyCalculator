@@ -1,41 +1,55 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <head>
         <title>TinyCalculator</title>
-    </h:head>
-    <h:body>
+    </head>
+    <body>
         <h1>TinyCalculator</h1>
-        <h:message for="result"/>
-        <h:form>
+        <form jsf:id="calc">
             <div>
-                <h:outputLabel value="Param1: " />
-                <h:inputText value="#{tinyCalculator.param1}" />
+                Param1: <input type="text" id="param1" jsf:value="#{tinyCalculator.param1}" />
             </div>
             <div>
-                <h:outputLabel value="Param2: " />
-                <h:inputText value="#{tinyCalculator.param2}" />
+                Param2: <input type="text" id="param2" jsf:value="#{tinyCalculator.param2}" />
             </div>
             <div>
-                <h:commandButton value="Add" action="#{tinyCalculator.add()}" />
-                <h:commandButton value="Subtract" action="#{tinyCalculator.subtract()}" />
-                <h:commandButton value="Multiply" action="#{tinyCalculator.multiply()}" />
-                <h:commandButton value="Divide" action="#{tinyCalculator.divide()}" />
-                <h:commandButton value="Print component tree" action="#{tinyCalculator.printTree()}" />
+                <input type="submit" value="Add" id="add" jsf:action="#{tinyCalculator.add()}" />
+                <input type="submit" value="Subtract"  id="subtract" jsf:action="#{tinyCalculator.subtract()}" />
+                <!-- or using the button element: -->
+                <button jsf:action="#{tinyCalculator.multiply()}" id="multiply">
+                    Multiply
+                </button>
+                <button jsf:action="#{tinyCalculator.divide()}" id="divide">
+                    Divide
+                </button>
+                
+            </div>
+            <div id="result">
+                Result: #{tinyCalculator.result}    
             </div>
             <div>
-                <h:outputLabel value="Result: " />
-                <h:outputText value="#{tinyCalculator.result}" />
-                <br/> #{tinyCalculator.result = 10}
-                <br/> #{tinyCalculator.result = tinyCalculator.result + 10}   
-                <br/> #{tinyCalculator.result} 
-                <br/> #{tinyCalculator.result = 10} 
-                <br/> #{tinyCalculator.result += 10} 
-                <h:outputText id="result" value="#{tinyCalculator.result}" />
-   
+                <ol id="selectable" class="ui-selectable">
+                    <li class="ui-state-default ui-selectee" name="one">1</li>
+                    <li class="ui-state-default ui-selectee" name="two">2</li>
+                    <li class="ui-state-default ui-selectee" name="three">3</li>
+                    <li class="ui-state-default ui-selectee" name="four">4</li>
+                    <li class="ui-state-default ui-selectee" name="five">5</li>
+                    <li class="ui-state-default ui-selectee" name="six">6</li>
+                    <li class="ui-state-default ui-selectee" name="seven">7</li>
+                    <li class="ui-state-default ui-selectee" name="eight">8</li>
+                    <li class="ui-state-default ui-selectee" name="nine">9</li>
+                    <li class="ui-state-default ui-selectee" name="ten">10</li>
+                    <li class="ui-state-default ui-selectee" name="eleven">11</li>
+                    <li class="ui-state-default ui-selectee" name="twelve">12</li>
+                </ol>
             </div>
-        </h:form>
-    </h:body>
+            
+            
+            
+            
+        </form>
+    </body>
 </html>
 
