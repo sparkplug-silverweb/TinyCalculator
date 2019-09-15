@@ -9,24 +9,24 @@
         <h1>TinyCalculator</h1>
         <form jsf:id="calc">
             <div>
-                Param1: <input type="text" jsf:value="#{tinyCalculator.param1}" />
+                Param1: <input type="text" id="param1" jsf:value="#{tinyCalculator.param1}" />
             </div>
             <div>
-                Param2: <input type="text" jsf:value="#{tinyCalculator.param2}" />
+                Param2: <input type="text" id="param2" jsf:value="#{tinyCalculator.param2}" />
             </div>
             <div>
-                <input type="submit" value="Add" jsf:action="#{tinyCalculator.add()}" />
-                <input type="submit" value="Subtract" jsf:action="#{tinyCalculator.subtract()}" />
+                <input type="submit" value="Add" id="add" jsf:action="#{tinyCalculator.add()}" />
+                <input type="submit" value="Subtract"  id="subtract" jsf:action="#{tinyCalculator.subtract()}" />
                 <!-- or using the button element: -->
-                <button jsf:action="#{tinyCalculator.multiply()}">
+                <button jsf:action="#{tinyCalculator.multiply()}" id="multiply">
                     Multiply
                 </button>
-                <button jsf:action="#{tinyCalculator.divide()}">
+                <button jsf:action="#{tinyCalculator.divide()}" id="divide">
                     Divide
                 </button>
                 
             </div>
-            <div>
+            <div id="result">
                 Result: #{tinyCalculator.result}    
             </div>
         </form>

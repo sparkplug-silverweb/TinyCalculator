@@ -5,6 +5,7 @@
  */
 package com.boilingpoint.tinycalculatortests;
 
+import junit.framework.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,43 +28,151 @@ public class NewSeleneseIT {
         System.setProperty("webdriver.chrome.driver","c:/WebDriver/chromedriver.exe");
     }
     
+    
+//    @Test
+//    public void testSimple() throws Exception {
+//        // Create a new instance of the Firefox driver
+//        // Notice that the remainder of the code relies on the interface, 
+//        // not the implementation.
+//
+//        WebDriver driver = new ChromeDriver();
+//
+//        // And now use this to visit NetBeans
+//        driver.get("http://www.netbeans.org");
+//        // Alternatively the same thing can be done like this
+//        // driver.navigate().to("http://www.netbeans.org");
+//
+//        // Check the title of the page
+//        // Wait for the page to load, timeout after 10 seconds
+//        (new WebDriverWait(driver, 20)).until(new ExpectedCondition<Boolean>() {
+//            @Override
+//            public Boolean apply(WebDriver d) {
+//                return d.getTitle().contains("NetBeans");
+//            }
+//        });
+//
+//        //Close the browser
+//        driver.quit();
+//    }
+//    
+//    
+//    @Test
+//    public void GoogleSearchButtonByName()
+//    {
+//        WebDriver driver = new FirefoxDriver();
+//        driver.get("http://www.google.com");
+//        WebElement searchBox = driver.findElement(By.name("q"));
+//        searchBox.sendKeys("Welcome to Selenium");
+//        WebElement googleSearch = driver.findElement(By.name("btnK"));
+//        googleSearch.submit();
+//        driver.quit();
+//    }
+//   
     @Test
-    public void testSimple() throws Exception {
-        // Create a new instance of the Firefox driver
-        // Notice that the remainder of the code relies on the interface, 
-        // not the implementation.
-
+    public void Add(){
         WebDriver driver = new ChromeDriver();
+        driver.get("http://localhost:8080/TinyCalculator/index.xhtml");
+        
+        WebElement inputParam1 = driver.findElement(By.id("param1"));
+        WebElement inputParam2 = driver.findElement(By.id("param2"));
+        WebElement btnAdd = driver.findElement(By.id("add"));
 
-        // And now use this to visit NetBeans
-        driver.get("http://www.netbeans.org");
-        // Alternatively the same thing can be done like this
-        // driver.navigate().to("http://www.netbeans.org");
+ 
+     
+        inputParam1.clear();
+        inputParam1.sendKeys("10");
+        
+        inputParam2.clear();
+        inputParam2.sendKeys("5");
+         
+        
+        // Add
+        btnAdd.click();
+        WebElement divResult = driver.findElement(By.id("result"));
+        Assert.assertEquals("Result: 15.0",divResult.getText());
 
-        // Check the title of the page
-        // Wait for the page to load, timeout after 10 seconds
-        (new WebDriverWait(driver, 20)).until(new ExpectedCondition<Boolean>() {
-            @Override
-            public Boolean apply(WebDriver d) {
-                return d.getTitle().contains("NetBeans");
-            }
-        });
-
-        //Close the browser
         driver.quit();
+          
     }
-    
     
     @Test
-    public void GoogleSearchButtonByName()
-    {
-        WebDriver driver = new FirefoxDriver();
-        driver.get("http://www.google.com");
-        WebElement searchBox = driver.findElement(By.name("q"));
-        searchBox.sendKeys("Welcome to Selenium");
-        WebElement googleSearch = driver.findElement(By.name("btnK"));
-        googleSearch.submit();
+    public void Subtract(){
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://localhost:8080/TinyCalculator/index.xhtml");
+        
+        WebElement inputParam1 = driver.findElement(By.id("param1"));
+        WebElement inputParam2 = driver.findElement(By.id("param2"));
+        WebElement btnSub = driver.findElement(By.id("subtract"));
+
+     
+        inputParam1.clear();
+        inputParam1.sendKeys("10");
+        
+        inputParam2.clear();
+        inputParam2.sendKeys("5");
+         
+
+        
+        // Subtract
+        btnSub.click();
+        WebElement divResult = driver.findElement(By.id("result"));
+        Assert.assertEquals("Result: 5.0",divResult.getText());
+
         driver.quit();
+          
     }
     
+    @Test
+    public void Multiply(){
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://localhost:8080/TinyCalculator/index.xhtml");
+        
+        WebElement inputParam1 = driver.findElement(By.id("param1"));
+        WebElement inputParam2 = driver.findElement(By.id("param2"));
+        WebElement btnMul = driver.findElement(By.id("multiply"));
+
+     
+        inputParam1.clear();
+        inputParam1.sendKeys("10");
+        
+        inputParam2.clear();
+        inputParam2.sendKeys("5");
+         
+
+        
+        // Multiply
+        btnMul.click();
+        WebElement divResult = driver.findElement(By.id("result"));
+        Assert.assertEquals("Result: 50.0",divResult.getText());
+
+        driver.quit();
+          
+    }
+    
+    @Test
+    public void Divide(){
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://localhost:8080/TinyCalculator/index.xhtml");
+        
+        WebElement inputParam1 = driver.findElement(By.id("param1"));
+        WebElement inputParam2 = driver.findElement(By.id("param2"));
+        WebElement btnDiv = driver.findElement(By.id("divide"));
+
+     
+        inputParam1.clear();
+        inputParam1.sendKeys("10");
+        
+        inputParam2.clear();
+        inputParam2.sendKeys("5");
+         
+
+        
+        // Divide
+        btnDiv.click();
+        WebElement divResult = driver.findElement(By.id("result"));
+        Assert.assertEquals("Result: 2.0",divResult.getText());
+
+        driver.quit();
+          
+    }
 }
