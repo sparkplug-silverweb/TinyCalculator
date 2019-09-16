@@ -5,7 +5,9 @@
  */
 package com.boilingpoint.tinycalculatortests;
 
-import junit.framework.Assert;
+
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -27,7 +29,7 @@ public class NewSeleneseIT {
     
     
     public NewSeleneseIT(){
-        System.setProperty("webdriver.gecko.driver", "c:/Gecko/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "c:/WebDriver/geckodriver.exe");
         System.setProperty("webdriver.chrome.driver","c:/WebDriver/chromedriver.exe");
     }
     
@@ -92,7 +94,7 @@ public class NewSeleneseIT {
         // Add
         btnAdd.click();
         WebElement divResult = driver.findElement(By.id("result"));
-        Assert.assertEquals("Result: 15.0",divResult.getText());
+        assertEquals("Result: 15.0",divResult.getText());
 
         driver.quit();
           
@@ -119,7 +121,7 @@ public class NewSeleneseIT {
         // Subtract
         btnSub.click();
         WebElement divResult = driver.findElement(By.id("result"));
-        Assert.assertEquals("Result: 5.0",divResult.getText());
+        assertEquals("Result: 5.0",divResult.getText());
 
         driver.quit();
           
@@ -146,7 +148,7 @@ public class NewSeleneseIT {
         // Multiply
         btnMul.click();
         WebElement divResult = driver.findElement(By.id("result"));
-        Assert.assertEquals("Result: 50.0",divResult.getText());
+        assertEquals("Result: 50.0",divResult.getText());
 
         driver.quit();
           
@@ -173,7 +175,7 @@ public class NewSeleneseIT {
         // Divide
         btnDiv.click();
         WebElement divResult = driver.findElement(By.id("result"));
-        Assert.assertEquals("Result: 2.0",divResult.getText());
+        assertEquals("Result: 2.0",divResult.getText());
 
         driver.quit();
           
@@ -198,5 +200,6 @@ public class NewSeleneseIT {
         Action compositeAction = builder.build();
         // Perform the composite action.
         compositeAction.perform();
+        driver.quit();
     }
 }
