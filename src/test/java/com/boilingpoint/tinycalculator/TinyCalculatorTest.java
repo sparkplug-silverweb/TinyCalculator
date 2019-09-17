@@ -32,7 +32,7 @@ public class TinyCalculatorTest
     @BeforeClass
     public static void setUpClass()
     {
-        System.setProperty("webdriver.gecko.driver","c:/WebDriver/gecko.exe");
+        System.setProperty("webdriver.gecko.driver","c:/WebDriver/geckodriver.exe");
         _driver = new FirefoxDriver();
     }
     
@@ -46,8 +46,8 @@ public class TinyCalculatorTest
     public void setUp()
     {
         _driver.get("http://localhost:8080/TinyCalculator/index.xhtml");
-        setValue("form:param1","6");
-        setValue("form:param2","4");
+        setValue("param1","6");
+        setValue("param2","4");
                 
     }
     
@@ -67,31 +67,31 @@ public class TinyCalculatorTest
     //
     @Test
     public void testAdd() {
-        _driver.findElement(By.id("form:add")).click();
-        String text = _driver.findElement(By.id("form:result")).getText();
-        assertThat(text,equalTo("10.0"));
+        _driver.findElement(By.id("add")).click();
+        String text = _driver.findElement(By.id("result")).getText();
+        assertThat(text,equalTo("Result: 10.0"));
         
     }
     
     @Test
     public void testSubstract(){
-        _driver.findElement(By.id("form:subtract")).click();
-        String text = _driver.findElement(By.id("form:result")).getText();
-        assertThat(text,equalTo("2.0"));
+        _driver.findElement(By.id("subtract")).click();
+        String text = _driver.findElement(By.id("result")).getText();
+        assertThat(text,equalTo("Result: 2.0"));
     }
     
     @Test
     public void testMultiply(){
-        _driver.findElement(By.id("form:multiply")).click();
-        String text = _driver.findElement(By.id("form:result")).getText();
-        assertThat(text,equalTo("24.0"));
+        _driver.findElement(By.id("multiply")).click();
+        String text = _driver.findElement(By.id("result")).getText();
+        assertThat(text,equalTo("Result: 24.0"));
     }
     
     
     @Test
     public void testDivide(){
-        _driver.findElement(By.id("form:divide")).click();
-        String text = _driver.findElement(By.id("form:result")).getText();
-        assertThat(text,equalTo("1.5"));
+        _driver.findElement(By.id("divide")).click();
+        String text = _driver.findElement(By.id("result")).getText();
+        assertThat(text,equalTo("Result: 1.5"));
     }
 }

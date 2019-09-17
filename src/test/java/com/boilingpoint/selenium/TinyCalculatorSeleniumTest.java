@@ -5,7 +5,7 @@
  */
 package com.boilingpoint.selenium;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -27,7 +27,7 @@ public class TinyCalculatorSeleniumTest
     
     @BeforeAll
     public static void setUpClass(){
-        System.setProperty("webdriver.gecko.driver","c:/WebDriver/gecko.exe");
+        System.setProperty("webdriver.gecko.driver","c:/WebDriver/geckodriver.exe");
         _driver = new FirefoxDriver();
     }
     
@@ -37,7 +37,7 @@ public class TinyCalculatorSeleniumTest
     }
     
     @BeforeEach
-    public void SetUp(){
+    public void setUp(){
         _driver.get("http://localhost:8080/TinyCalculator/index.xhtml");
         setValue("param1","6");
         setValue("param2","4");
@@ -51,9 +51,9 @@ public class TinyCalculatorSeleniumTest
     
     @Test
     public void testAdd() {
-        _driver.findElement(By.id("add")).click();
+        _driver.findElement(By.id("foadd")).click();
         String text = _driver.findElement(By.id("result")).getText();
-        assertEquals("10.0",text);
+        assertEquals("Result: 10.0",text);
         
     }
     
