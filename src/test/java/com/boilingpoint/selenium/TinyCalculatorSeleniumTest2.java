@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.boilingpoint.tinycalculatortests;
+package com.boilingpoint.selenium;
 
 
 import static org.junit.Assert.assertEquals;
@@ -24,11 +24,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  *
  * @author lserd
  */
-public class NewSeleneseIT {
+public class TinyCalculatorSeleniumTest2 {
     
     
     
-    public NewSeleneseIT(){
+    public TinyCalculatorSeleniumTest2(){
         System.setProperty("webdriver.gecko.driver", "c:/WebDriver/geckodriver.exe");
         System.setProperty("webdriver.chrome.driver","c:/WebDriver/chromedriver.exe");
     }
